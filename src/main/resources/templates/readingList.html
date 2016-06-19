@@ -1,4 +1,5 @@
-<html>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
 
 <head>
     <meta charset="UTF-8" />
@@ -9,6 +10,8 @@
 <body>
 <h2>Your Reading List</h2>
 
+<!--/*--><!--@thymesVar id="books" type="List<com.manning.domain.Book>"--><!--*/-->
+<!--/*--><!--@thymesVar id="book" type="com.manning.domain.Book"--><!--*/-->
 <div th:unless="${#lists.isEmpty(books)}">
     <dl th:each="book : ${books}">
         <dt class="bookHeadline">
