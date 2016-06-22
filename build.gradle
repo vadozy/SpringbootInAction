@@ -31,7 +31,9 @@ dependencies {
 	compile('org.springframework.boot:spring-boot-starter-thymeleaf')
 	compile('org.springframework.boot:spring-boot-starter-web')
 	runtime('com.h2database:h2')
-	testCompile('org.springframework.boot:spring-boot-starter-test') 
+	testCompile('org.springframework.boot:spring-boot-starter-test')
+	// Next are added by Vadim
+	compile("org.springframework.boot:spring-boot-devtools") // used for hot swapping
 }
 
 
