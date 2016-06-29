@@ -9,19 +9,19 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter
 @SpringBootApplication
 public class ReadingListApplication extends WebMvcConfigurerAdapter {
 
-	public static void main(String[] args) {
-		SpringApplication.run(ReadingListApplication.class, args);
-	}
+    public static void main(String[] args) {
+        SpringApplication.run(ReadingListApplication.class, args);
+    }
 
-	@Override
-	public void addViewControllers(ViewControllerRegistry registry) {
-		registry.addRedirectViewController("/", "/readingList");
-	}
+    @Override
+    public void addViewControllers(ViewControllerRegistry registry) {
+        registry.addRedirectViewController("/", "/readingList");
+    }
 
-	@Override
-	public void addResourceHandlers(ResourceHandlerRegistry registry) {
-		if (!registry.hasMappingForPattern("/static/**")) {
-			registry.addResourceHandler("/static/**").addResourceLocations("classpath:/static/");
-		}
-	}
+    @Override
+    public void addResourceHandlers(ResourceHandlerRegistry registry) {
+        if (!registry.hasMappingForPattern("/static/**")) {
+            registry.addResourceHandler("/static/**").addResourceLocations("classpath:/static/");
+        }
+    }
 }
