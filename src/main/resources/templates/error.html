@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+    <title>Oops!</title>
+    <link rel="stylesheet" th:href="@{/static/style.css}" />
+</head>
+
+<!--/*--><!--@thymesVar id="message" type="java.lang.String" --><!--*/-->
+<body>
+    <div class="errorPage">
+        <span class="oops">Oops!</span><br/>
+        <img th:src="@{/static/MissingPage.png}" />
+        <p>There seems to be a problem with the page you requested
+            <!-- (<span text="${path}">/readingList</span>). -->
+        </p>
+        <p th:text="${'Details: ' + message}"></p>
+    </div>
+</body>
+</html>
