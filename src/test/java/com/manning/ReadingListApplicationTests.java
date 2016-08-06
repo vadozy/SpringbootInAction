@@ -14,5 +14,4 @@ public class ReadingListApplicationTests {
 	@Test
 	public void contextLoads() {
 	}
-
 }
