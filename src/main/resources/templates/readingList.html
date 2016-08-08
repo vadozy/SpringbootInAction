@@ -20,8 +20,7 @@
             (ISBN: <span th:text="${book.isbn}">ISBN</span>)
         </dt>
         <dd class="bookDescription">
-            <span th:if="${book.description}" th:text="${book.description}">Description</span>
-            <span th:if="${book.description eq null}">No description available</span>
+            <span th:text="${book.description ?: 'No description available'}">Description</span>
         </dd>
     </dl>
 </div>
