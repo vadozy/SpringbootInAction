@@ -17,7 +17,8 @@ public class ReadingListApplication extends WebMvcConfigurerAdapter {
 
     @Override
     public void addViewControllers(ViewControllerRegistry registry) {
-        //registry.addRedirectViewController("/", "/readingList");
+        registry.addRedirectViewController("/", "/readingList/vadozy");
+        registry.addRedirectViewController("/readingList", "/readingList/vadozy");
         registry.addViewController("/login").setViewName("login");
     }
 

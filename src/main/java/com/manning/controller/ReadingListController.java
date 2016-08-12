@@ -17,11 +17,16 @@ import com.manning.springdata.ReadingListRepository;
  * Created by vstorozhuk on 6/13/2016.
  */
 @Controller
-@RequestMapping("/")
-//@ConfigurationProperties("amazon")
+@RequestMapping("/readingList")
+@ConfigurationProperties("amazon")
 public class ReadingListController {
 
 	private ReadingListRepository readingListRepository;
+	private String associateId;
+
+	public void setAssociateId(String associateId) {
+		this.associateId = associateId;
+	}
 
 	@Autowired
 	public ReadingListController(ReadingListRepository readingListRepository) {
@@ -33,6 +38,8 @@ public class ReadingListController {
 		List<Book> readingList = readingListRepository.findByReader(reader);
 		if (readingList != null) {
 			model.addAttribute("books", readingList);
+			model.addAttribute("reader", reader);
+			model.addAttribute("amazonID", associateId);
 		}
 		return "readingList";
 	}
@@ -41,7 +48,6 @@ public class ReadingListController {
 	public String addToReadingList(@PathVariable("reader") String reader, Book book) {
 		book.setReader(reader);
 		readingListRepository.save(book);
-		return "redirect:/{reader}";
+		return "redirect:{reader}";
 	}
-
 }
