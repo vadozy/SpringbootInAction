@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import com.manning.AmazonProperties;
 import com.manning.domain.Book;
 import com.manning.springdata.ReadingListRepository;
 
@@ -18,19 +19,17 @@ import com.manning.springdata.ReadingListRepository;
  */
 @Controller
 @RequestMapping("/readingList")
-@ConfigurationProperties("amazon")
 public class ReadingListController {
 
 	private ReadingListRepository readingListRepository;
-	private String associateId;
-
-	public void setAssociateId(String associateId) {
-		this.associateId = associateId;
-	}
+	private AmazonProperties amazonProperties;
 
 	@Autowired
-	public ReadingListController(ReadingListRepository readingListRepository) {
+	public ReadingListController(
+			ReadingListRepository readingListRepository,
+			AmazonProperties amazonProperties) {
 		this.readingListRepository = readingListRepository;
+		this.amazonProperties = amazonProperties;
 	}
 
 	@RequestMapping(value = "/{reader}", method = RequestMethod.GET)
@@ -39,7 +38,7 @@ public class ReadingListController {
 		if (readingList != null) {
 			model.addAttribute("books", readingList);
 			model.addAttribute("reader", reader);
-			model.addAttribute("amazonID", associateId);
+			model.addAttribute("amazonID", amazonProperties.getAssociateId());
 		}
 		return "readingList";
 	}
