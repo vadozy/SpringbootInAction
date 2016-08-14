@@ -48,7 +48,8 @@ public class MockMvcWebSecurityTests {
     }
 
     @Test
-    //@WithUserDetails("vadim")
+    // Either @WithUserDetails or @WithMockUser can be commented out
+    @WithUserDetails("vadim")
     @WithMockUser(username="vadim", password="password", roles="READER")
     public void homePage_authenticatedUser() throws Exception {
         Reader expectedReader = new Reader();
