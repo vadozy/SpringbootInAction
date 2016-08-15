@@ -33,6 +33,7 @@ dependencies {
     compile("org.springframework.boot:spring-boot-starter-security")
 
     testCompile('org.springframework.boot:spring-boot-starter-test')
+    testCompile("org.seleniumhq.selenium:selenium-java:2.45.0") // testing pages with Selenium
 
     //Next is used by test classes that test Spring Security (eg MockMvcWebSecurityTests)
     testCompile("org.springframework.security:spring-security-test")
